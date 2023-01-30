@@ -1,13 +1,12 @@
 import { useState } from "react";
 import CheckList from "../components/CheckList";
+import CheckListDonne from "../components/CheckListDonne";
+
+
 
 export default function ToDoList() {
-  const [toDo, setToDo] = useState(["I have a bike", "I have a car"]);
-  const [donne, setDonne] = useState([
-    "I have a bike",
-    "I have a car",
-    " I have a boat"
-  ]);
+  const [toDo, setToDo] = useState([]);
+  const [donne, setDonne] = useState([]);
   const [newWork, setNewWork] = useState("");
 
   return (
@@ -15,10 +14,9 @@ export default function ToDoList() {
       <h1> To Do </h1>
       <div className="App">
         <form
-          onSubmit={() => {
-            let newTodo = toDo;
-            newTodo.push(newWork);
-            setToDo(newTodo);
+          onSubmit={(e) => {
+            e.preventDefault()
+            setToDo([newWork, ...toDo]);
             setNewWork("");
           }}
         >
@@ -26,18 +24,17 @@ export default function ToDoList() {
             type="text"
             value={newWork}
             onChange={(e) => setNewWork(e.target.value)}
-          />
-        </form>
-        <form>
+          /><br/>
           {toDo.map((value, id) => (
             <CheckList
               value={value}
               id={`todo${id}`}
-              functionCheck={(str) => {
-                let newDonne = donne;
-                newDonne.push(str);
-                setDonne(newDonne);
-              }}
+              functionClick={
+                () => {
+                setDonne([value, ...donne]);
+                setToDo([...toDo.slice(0,Math.max(id,0)),...toDo.slice(id+1,toDo.length)])
+                }
+              }
             />
           ))}
         </form>
@@ -46,7 +43,7 @@ export default function ToDoList() {
       <div className="App">
         <form>
           {donne.map((value, id) => (
-            <CheckList value={value} id={id} functionCheck={() => {}} />
+            <CheckListDonne value={value} id={id} />
           ))}
         </form>
       </div>

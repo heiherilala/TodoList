@@ -1,4 +1,4 @@
-export default function CheckList(props) {
+export default function CheckListDonne(props) {
   return (
     <>
       <input
@@ -6,14 +6,7 @@ export default function CheckList(props) {
         id={props.id}
         name={`To Do ${props.id}`}
         value={props.value}
-        onChange={
-          e=>{
-            if (e.target.checked) {
-              props.functionClick()
-              e.target.checked=false
-            }
-          }
-        }
+        checked={true}
       />
       <label for={props.id}> {props.value} </label>
       <br />

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`have to be same as the Snapshot 1`] = `
+<div
+  className="form-check form-switch row"
+>
+  <input
+    checked={false}
+    className="col-sm-1"
+    id="todoID"
+    onChange={[Function]}
+    type="checkbox"
+    value="Body text moxk."
+  />
+  <label
+    className="col-sm-10 text-white"
+    htmlFor="todoID"
+    value="Body text moxk."
+  >
+     
+    Body text moxk.
+     
+  </label>
+  <br />
+</div>
+`;

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`have to be same as the Snapshot 1`] = `
+<div
+  className="container todo-container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="to-do-table d-flex flex-column justify-content-start col-sm-5 card bg-secondary"
+    >
+      <div
+        className="card-header text-white"
+      >
+         To Do 
+      </div>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="w-100"
+          onChange={[Function]}
+          placeholder="Write a 'to do' "
+          type="text"
+          value=""
+        />
+      </form>
+    </div>
+    <div
+      className="to-do-table d-flex flex-column justify-content-start col-sm-5 card bg-secondary"
+    >
+      <div
+        className="card-header text-white"
+      >
+         Done 
+      </div>
+      <form />
+    </div>
+  </div>
+</div>
+`;

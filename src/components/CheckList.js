@@ -1,10 +1,12 @@
 export default function CheckList(props) {
   return (
-    <>
-      <input
+    <div className="form-check form-switch row">
+      {props.checked&&<input
         type="checkbox"
+        checked={false}
+        className="col-sm-1"
         id={props.id}
-        name={`To Do ${props.id}`}
+        name={props.name}
         value={props.value}
         onChange={
           e=>{
@@ -14,9 +16,9 @@ export default function CheckList(props) {
             }
           }
         }
-      />
-      <label for={props.id}> {props.value} </label>
+      />}
+      <label className="col-sm-10 text-white" htmlFor={props.id} value={props.value} > {props.value} </label>
       <br />
-    </>
+    </div>
   );
 }

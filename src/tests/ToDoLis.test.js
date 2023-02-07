@@ -5,14 +5,14 @@ import '@testing-library/jest-dom/extend-expect';
 import userEvent from "@testing-library/user-event";
 const bodyTextMock = "Body text moxk."
 
-test("Item have a input and it is empty in starting", () => {
+test("Item has an input and it is empty at launch.", () => {
     render (<ToDoList />);
     const inputText = screen.getByRole("textbox");
     expect(inputText).toBeInTheDocument();
     expect(inputText.getAttribute('value')).toBe("");
 });
 
-test("can write in input, and be empty afther enter", () => {
+test("Can write in input and be empty after pressing Enter.", () => {
     render (<ToDoList />);
     const inputText = screen.getByRole("textbox");
     userEvent.type(inputText,bodyTextMock)
@@ -22,7 +22,7 @@ test("can write in input, and be empty afther enter", () => {
     expect(inputText.getAttribute('value')).toBe("");
 });
 
-test("Item have title 'To Do' and 'Done' in starting", () => {
+test("The page has the title 'To Do' and 'Done' at launch.", () => {
     render (<ToDoList />);
     const ToDoTitle = screen.getByText("To Do");
     expect(ToDoTitle).toBeInTheDocument();
@@ -31,13 +31,13 @@ test("Item have title 'To Do' and 'Done' in starting", () => {
 });
 
 
-test("not have list of checkbox of To Do on Done in starting", () => {
+test("Do not have list of checkbox in theTo Do and Done at launch.", () => {
     render (<ToDoList />);
     const todoList = screen.queryAllByRole("checkbox");
     expect(todoList.length).toBe(0);
 });
 
-test("add to do checked with rigth value whene click enter with not empty input", () => {
+test("Add to do Checked with correct value when clicking Enter with non-empty input.", () => {
     render (<ToDoList />);
     const inputText = screen.getByRole("textbox");
     userEvent.type(inputText,`${bodyTextMock}{enter}`)
@@ -45,7 +45,7 @@ test("add to do checked with rigth value whene click enter with not empty input"
     expect(toDOItem.value).toBe(bodyTextMock);
 });
 
-test("remov todo item end add done item with rigth value whene check a to do", () => {
+test("Remove a to-do item and add a done item with the correct value when checking a to-do.", () => {
     render (<ToDoList />);
     const inputText = screen.getByRole("textbox");
     userEvent.type(inputText,`${bodyTextMock}{enter}`)
@@ -62,7 +62,7 @@ test("remov todo item end add done item with rigth value whene check a to do", (
     expect(doneList[0].textContent).toContain(bodyTextMock);
 });
 
-test("not add to do checked whene click enter with empty input", () => {
+test("Do not add to do checked when clicking Enter with empty input", () => {
     render (<ToDoList />);
     const inputText = screen.getByRole("textbox");
     userEvent.type(inputText,`${""}{enter}`)

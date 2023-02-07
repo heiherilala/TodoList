@@ -3,7 +3,7 @@ import { render, fireEvent, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 const bodyTextMock = "Body text moxk."
 
-    test('Item have rigth value', () => {
+    test('Item has a correct value', () => {
         render (<CheckList
             value={bodyTextMock}
             id={"todoID"}
@@ -14,7 +14,7 @@ const bodyTextMock = "Body text moxk."
         expect(item.value).toBe(bodyTextMock);
     });
 
-    test('Item have checkbox and him checked = false in creation when checked in Checklist is true', () => {
+    test('Item has checkbox and its checked = false on creation if checked in checklist is true.', () => {
         render (<CheckList
             value={bodyTextMock}
             id={"todoID"}
@@ -27,7 +27,7 @@ const bodyTextMock = "Body text moxk."
         expect(item.checked).toBeFalsy();
     });
 
-    test("Item does not have checkbox in creation when checked in Checklist is false", () => {
+    test("Item does not have checkbox on creation when checked in Checklist is false.", () => {
         render(
             <CheckList
             value={bodyTextMock}
